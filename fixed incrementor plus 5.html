@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incrementer</title>
+</head>
+<body>
+    <h2>Incrementer</h2>
+    <label for="numberInput">Enter a Number:</label>
+    <input type="text" id="numberInput" placeholder="Enter a number">
+    <br>
+    <button onclick="incrementNumber()">Increment</button>
+    <p id="result"></p>
+
+    <script>
+        // Fixed increment value (change as needed)
+        const incrementValue = 5;
+
+        // Function to increment the number by a fixed value
+        function incrementNumber() {
+            const numberInput = document.getElementById('numberInput').value;
+            const resultDisplay = document.getElementById('result');
+            let inputValue = parseFloat(numberInput);
+
+            // Basic error handling for non-numeric inputs
+            if (isNaN(inputValue)) {
+                resultDisplay.innerHTML = 'Please enter a valid number.';
+                return;
+            }
+
+            // Increment the number by the fixed value
+            let incrementedValue = inputValue + incrementValue;
+
+            // Display the result
+            resultDisplay.innerHTML = `The incremented value is: ${incrementedValue}`;
+        }
+    </script>
+</body>
+</html>
